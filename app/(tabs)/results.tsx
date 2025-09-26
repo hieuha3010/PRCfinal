@@ -28,6 +28,7 @@ import { theme } from '@/constants/theme';
 import { GradientText } from '@/components/Gradient';
 import { mockDataService } from '@/services/mockDataService';
 import { SearchResult } from '@/types';
+import { fadeInFast, fadeOutFast, springLayout, AView } from '@/components/motion';
 
 export default function ResultsScreen() {
   const params = useLocalSearchParams<{ query: string }>();
