@@ -13,9 +13,9 @@ export default function AppBackground({ children }: Props) {
         resizeMode="cover"
       >
       </ImageBackground>
-      {/* Optional subtle overlay to smooth colors */}
+      {/* Darker overlay to ensure text readability over image */}
       <LinearGradient
-        colors={["rgba(0,0,0,0.5)", "rgba(0,0,0,0.3)", "rgba(0,0,0,0.0)"]}
+        colors={["rgba(0,0,0,0.6)", "rgba(0,0,0,0.4)", "rgba(0,0,0,0.2)"]}
         start={{ x: 0.2, y: 0.0 }}
         end={{ x: 0.8, y: 1.0 }}
         style={StyleSheet.absoluteFill}
