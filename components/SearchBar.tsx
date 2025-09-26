@@ -9,7 +9,6 @@ import {
 import { Search } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '@/constants/theme';
-import { AView, slideInUp } from './motion';
 
 interface SearchBarProps {
   value: string;
@@ -36,7 +35,7 @@ export function SearchBar({
   const styles = createStyles();
 
   return (
-    <AView entering={slideInUp.delay(120)} style={styles.outer}>
+    <View style={styles.outer}>
       {/* Optional 1dp gradient ring outline; keep subtle */}
       <LinearGradient
         colors={[theme.colors.brandStart, theme.colors.brandEnd]}
@@ -63,7 +62,7 @@ export function SearchBar({
           blurOnSubmit={false}
         />
       </View>
-    </AView>
+    </View>
   );
 }
 

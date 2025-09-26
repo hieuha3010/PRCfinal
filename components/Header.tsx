@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { theme } from "@/constants/theme";
-import { AView, slideInDown } from "./motion";
 
 interface HeaderProps {
   title?: string;
@@ -10,10 +9,10 @@ interface HeaderProps {
 
 export default function Header({ title = "Explore", subtitle = "" }: HeaderProps) {
   return (
-    <AView entering={slideInDown.delay(80)} style={styles.wrap}>
+    <View style={styles.wrap}>
       <Text style={styles.title}>{title}</Text>
       {!!subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
-    </AView>
+    </View>
   );
 }
 
