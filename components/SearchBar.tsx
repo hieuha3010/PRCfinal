@@ -9,6 +9,7 @@ import {
 import { Search } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '@/constants/theme';
+import { AView, slideInUp } from './motion';
 
 interface SearchBarProps {
   value: string;
@@ -35,7 +36,7 @@ export function SearchBar({
   const styles = createStyles();
 
   return (
-    <View style={styles.outer}>
+    <AView entering={slideInUp.delay(120)} style={styles.outer}>
       {/* Optional 1dp gradient ring outline; keep subtle */}
       <LinearGradient
         colors={[theme.colors.brandStart, theme.colors.brandEnd]}
@@ -61,6 +62,56 @@ export function SearchBar({
           returnKeyType="search"
           blurOnSubmit={false}
         />
+      </View>
+    </AView>
+  );
+}
+
+const HEIGHT = 40; // smaller vertical size
+const createStyles = () => StyleSheet.create({
+  outer: {
+    width: "95%",            // centered and not too wide
+    alignSelf: "center",
+    height: HEIGHT + 2,      // room for 1dp ring
+    borderRadius: HEIGHT / 2,
+    position: "relative",
+  },
+  ring: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: HEIGHT / 2,
+    opacity: 0.35,           // very light ring
+  },
+  container: {
+    position: 'absolute',
+    top: 1,
+    left: 1,
+    right: 1,
+    bottom: 1,                // inside the ring
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: theme.colors.surface,
+    borderRadius: HEIGHT / 2,
+    borderWidth: theme.hairline,
+    borderColor: theme.colors.border,
+    justifyContent: 'center',
+    height: HEIGHT,
+    paddingHorizontal: 14,
+  },
+  searchIcon: {
+    marginRight: 8,
+  },
+  input: {
+    flex: 1,
+    paddingVertical: 6,      // tighter vertical padding
+    color: theme.colors.text,
+    ...theme.typography.subhead, // slightly smaller text by default
+  },
+});
+
       </View>
     </View>
   );

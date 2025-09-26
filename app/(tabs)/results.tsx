@@ -257,10 +257,11 @@ export default function ResultsScreen() {
             {viewMode === 'list' ? (
               <View style={styles.listContainer}>
                 {results.map((screenshot, index) => (
-                  <Animated.View
+                  <AView
                     key={screenshot.id}
-                    entering={FadeIn.delay(index * 40).duration(400)}
-                    layout={LayoutAnimation.springify()}
+                    entering={fadeInFast.delay(index * 40)}
+                    exiting={fadeOutFast}
+                    layout={springLayout}
                   >
                     <ScreenshotCard
                       screenshot={screenshot}
@@ -269,7 +270,7 @@ export default function ResultsScreen() {
                       searchQuery={searchQuery}
                       featured={index === 0}
                     />
-                  </Animated.View>
+                  </AView>
                 ))}
               </View>
             ) : (
