@@ -101,8 +101,9 @@ const createStyles = () =>
       marginBottom: 10,
     },
     searchWrap: {
-      alignItems: 'center',
-      width: '100%',
-      maxWidth: 560,   
+        flex: 1,                  // take up available vertical space
+  justifyContent: 'center', // center vertically
+  alignItems: 'center',     // center horizontally
+  width: '100%', 
     },
   });
