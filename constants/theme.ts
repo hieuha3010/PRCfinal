@@ -35,12 +35,12 @@ export const theme = {
     },
   },
   typography: {
-    display:   { fontSize: 34, lineHeight: 40, fontWeight: "600" as const, letterSpacing: -0.3 },
-    title:     { fontSize: 28, lineHeight: 34, fontWeight: "600" as const, letterSpacing: -0.2 },
-    headline:  { fontSize: 17, lineHeight: 22, fontWeight: "600" as const },
-    body:      { fontSize: 17, lineHeight: 24, fontWeight: "400" as const },
-    subhead:   { fontSize: 15, lineHeight: 20, fontWeight: "400" as const },
-    caption:   { fontSize: 13, lineHeight: 18, fontWeight: "400" as const },
+    display:   { fontSize: 30, lineHeight: 36, fontWeight: "600" as const, letterSpacing: -0.3 },
+    title:     { fontSize: 24, lineHeight: 30, fontWeight: "600" as const, letterSpacing: -0.2 },
+    headline:  { fontSize: 15, lineHeight: 20, fontWeight: "600" as const },
+    body:      { fontSize: 15, lineHeight: 22, fontWeight: "400" as const },
+    subhead:   { fontSize: 14, lineHeight: 19, fontWeight: "400" as const },
+    caption:   { fontSize: 12, lineHeight: 16, fontWeight: "400" as const },
     // family is platform default (San Francisco on iOS)
   },
   hairline: StyleSheet.hairlineWidth,

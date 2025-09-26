@@ -10,15 +10,9 @@ import {
   Platform,
 } from 'react-native';
 import { router } from 'expo-router';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withRepeat,
-  withTiming,
-  interpolate,
-} from 'react-native-reanimated';
 import * as Haptics from 'expo-haptics';
 import { SearchBar } from '@/components/SearchBar';
+import Header from '@/components/Header';
 import { theme } from '@/constants/theme';
 import { mockDataService } from '@/services/mockDataService';
 
@@ -57,7 +51,7 @@ export default function SearchScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle="dark-content"
-        backgroundColor={theme.colors.background}
+        backgroundColor="transparent"
       />
 
       <ScrollView
@@ -65,20 +59,21 @@ export default function SearchScreen() {
         contentContainerStyle={styles.contentContainer}
         showsVerticalScrollIndicator={false}
       >
-        {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.title}>MemoryHub</Text>
-          <Text style={styles.subtitle}>Search your captured memories</Text>
+        {/* HEADER ABOVE */}
+        <View style={styles.headerWrap}>
+          <Header
+            title="MemoryHub"
+            subtitle="Search your captured memories"
+          />
         </View>
 
-        {/* Search Bar */}
-        <View style={styles.searchContainer}>
+        {/* CENTERED, SMALLER SEARCH BAR */}
+        <View style={styles.searchWrap}>
           <SearchBar
             value={searchQuery}
             onChangeText={setSearchQuery}
             onSubmit={handleSearch}
-            placeholder="Search anything"
-            autoFocus={false}
+            placeholder="Search…"
           />
         </View>
       </ScrollView>
@@ -90,7 +85,7 @@ const createStyles = () =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: theme.colors.background,
+      backgroundColor: 'transparent',
     },
     content: {
       flex: 1,
@@ -98,31 +93,16 @@ const createStyles = () =>
     contentContainer: {
       flexGrow: 1,
       paddingHorizontal: theme.spacing["2xl"],
+      paddingTop: 24, // keep top space; StatusBar remains dark-content
       paddingBottom: theme.spacing["3xl"],
     },
-    header: {
+    headerWrap: {
       alignItems: 'center',
-      paddingTop: theme.spacing["3xl"],
-      paddingBottom: theme.spacing["2xl"],
+      marginTop: 12,
+      marginBottom: 10,
     },
-    title: {
-      fontSize: theme.typography.display.fontSize,
-      lineHeight: theme.typography.display.lineHeight,
-      fontWeight: theme.typography.display.fontWeight,
-      letterSpacing: theme.typography.display.letterSpacing,
-      color: theme.colors.text,
-      textAlign: 'center',
-      marginBottom: theme.spacing.sm,
-    },
-    subtitle: {
-      fontSize: theme.typography.subhead.fontSize,
-      lineHeight: theme.typography.subhead.lineHeight,
-      fontWeight: theme.typography.subhead.fontWeight,
-      color: theme.colors.textMuted,
-      textAlign: 'center',
-      marginBottom: theme.spacing["2xl"],
-    },
-    searchContainer: {
-      paddingHorizontal: theme.spacing.md,
+    searchWrap: {
+      alignItems: 'center',
+      marginBottom: 16,
     },
   });

@@ -185,14 +185,14 @@ export default function LibraryScreen() {
 const createStyles = (colors: any) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: 'transparent',
   },
   header: {
-    backgroundColor: colors.background,
+    backgroundColor: 'rgba(255,255,255,0.95)',
     paddingHorizontal: theme.spacing.md,
     paddingVertical: theme.spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    borderBottomColor: theme.colors.border,
   },
   headerContent: {
     flexDirection: 'row',

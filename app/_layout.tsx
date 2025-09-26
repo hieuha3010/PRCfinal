@@ -1,19 +1,18 @@
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
-import { theme } from '@/constants/theme';
+import AppBackground from '@/components/AppBackground';
 
 export default function RootLayout() {
   useFrameworkReady();
 
   return (
-    <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
-      <StatusBar style="dark" backgroundColor={theme.colors.background} />
+    <AppBackground>
+      <StatusBar style="dark" backgroundColor="transparent" />
       <Stack screenOptions={{ 
         headerShown: false,
-        contentStyle: { backgroundColor: theme.colors.background }
+        contentStyle: { backgroundColor: 'transparent' }
       }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="results" />
@@ -22,6 +21,6 @@ export default function RootLayout() {
         <Stack.Screen name="settings" />
         <Stack.Screen name="+not-found" />
       </Stack>
-    </View>
+    </AppBackground>
   );
 }

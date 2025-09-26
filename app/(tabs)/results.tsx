@@ -289,10 +289,10 @@ export default function ResultsScreen() {
 const createStyles = () => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: 'transparent',
   },
   header: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: 'rgba(255,255,255,0.95)',
     paddingHorizontal: theme.spacing.lg,
     borderBottomWidth: theme.hairline,
     borderBottomColor: theme.colors.border,

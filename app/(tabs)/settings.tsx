@@ -174,13 +174,14 @@ export default function SettingsScreen() {
 const createStyles = (colors: any) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: 'transparent',
   },
   header: {
     paddingHorizontal: theme.spacing.md,
     paddingVertical: theme.spacing.lg,
     borderBottomWidth: 1,
     borderBottomColor: theme.colors.border,
+    backgroundColor: 'rgba(255,255,255,0.95)',
   },
   title: {
     fontSize: theme.typography.display.fontSize,
