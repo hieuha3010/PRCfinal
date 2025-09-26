@@ -95,8 +95,6 @@ const createStyles = () =>
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: theme.spacing["2xl"],
-        paddingTop: 40, 
-        paddingBottom: 0,  
     },
     headerWrap: {
       alignItems: 'center',
