@@ -97,8 +97,10 @@ const createStyles = () =>
         paddingHorizontal: theme.spacing["2x1"],
     },
     headerWrap: {
-      alignItems: 'center',
-      marginBottom: 10,
+        position: 'absolute',     // float above the search container
+        top: '40%',               // roughly 40% down the screen (adjust as needed)
+        alignItems: 'center',
+        width: '100%',
     },
     searchWrap: {
       flex: 1,                  
