@@ -127,7 +127,7 @@ export default function ViewerScreen() {
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
         {/* Background Gradient */}
-        <LinearGradient colors={['#0B0D0F', '#1B1D1F']} style={styles.backgroundGradient} />
+        <LinearGradient colors={['#0B0D0F', '#1B1D1F']} style={styles.background} />
 
         {/* Header Overlay */}
         <Animated.View entering={FadeIn.duration(300)} style={styles.headerOverlay}>
