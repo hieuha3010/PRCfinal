@@ -63,7 +63,7 @@ export default function SearchScreen() {
         <View style={styles.headerWrap}>
           <Header
             title="MemoryHub"        
-            subtitle="Relax, we remember it all 😮‍💨"   
+            subtitle="We remember everything"   
           />
         </View>
 
