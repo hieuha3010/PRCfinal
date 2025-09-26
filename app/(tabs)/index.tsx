@@ -98,7 +98,7 @@ const createStyles = () =>
     },
     headerWrap: {
         position: 'absolute',     // float above the search container
-        top: '40%',               // roughly 40% down the screen (adjust as needed)
+        top: '35%',               // roughly 40% down the screen (adjust as needed)
         alignItems: 'center',
         width: '100%',
     },
