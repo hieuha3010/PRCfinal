@@ -102,7 +102,8 @@ const createStyles = () =>
     },
     searchWrap: {
       flex: 1,                  
-      justifyContent: 'center', 
-      alignItems: 'center', 
-    },
+      justifyContent: 'center', // center vertically
+      alignItems: 'center',     // center horizontally
+      width: '100%',  
+    }, 
   });
