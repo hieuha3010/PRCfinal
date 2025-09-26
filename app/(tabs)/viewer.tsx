@@ -25,6 +25,7 @@ import * as Haptics from 'expo-haptics';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { theme } from '@/constants/theme';
 import { mockDataService } from '@/services/mockDataService';
+import { AView, zoomInSoft } from '@/components/motion';
 import { Screenshot } from '@/types';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -144,7 +145,8 @@ export default function ViewerScreen() {
 
         {/* Carousel Container */}
         <GestureDetector gesture={panGesture}>
-          <View
+          <AView
+            entering={zoomInSoft}
             style={styles.carouselContainer}
             onLayout={(e) => {
               const w = e.nativeEvent.layout.width;
@@ -167,7 +169,7 @@ export default function ViewerScreen() {
                 />
               ))}
             </Animated.View>
-          </View>
+          </AView>
         </GestureDetector>
 
         {/* Navigation Controls */}

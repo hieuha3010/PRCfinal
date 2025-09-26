@@ -22,6 +22,7 @@ import { MasonryGrid } from '@/components/MasonryGrid';
 import { LoadingShimmer } from '@/components/LoadingShimmer';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { theme } from '@/constants/theme';
+import { AView, fadeInFast, fadeOutFast, springLayout } from '@/components/motion';
 import { mockDataService } from '@/services/mockDataService';
 import { Screenshot, SearchResult } from '@/types';
 
@@ -155,17 +156,18 @@ export default function LibraryScreen() {
             {viewMode === 'list' ? (
               <View style={styles.listContainer}>
                 {screenshotsAsResults.map((screenshot, index) => (
-                  <Animated.View
+                  <AView
                     key={screenshot.id}
-                    entering={FadeIn.delay(index * 20).duration(400)}
-                    layout={LayoutAnimation.springify()}
+                    entering={fadeInFast.delay(index * 40)}
+                    exiting={fadeOutFast}
+                    layout={springLayout}
                   >
                     <ScreenshotCard
                       screenshot={screenshot}
                       onPress={() => handleScreenshotPress(screenshot, index)}
                       index={index}
                     />
-                  </Animated.View>
+                  </AView>
                 ))}
               </View>
             ) : (
