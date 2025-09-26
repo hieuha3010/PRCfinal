@@ -106,6 +106,6 @@ const createStyles = () =>
       flex: 1,                  
       justifyContent: 'center', // center vertically
       alignItems: 'center',     // center horizontally
-      width: '100%',  
+      width: '85%',  
     }, 
   });
