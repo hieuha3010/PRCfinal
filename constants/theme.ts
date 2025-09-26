@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const theme = {
   colors: {
     // Light-only base
-    background: ["#ADD8E6", "#FFB6C1"],
+    background: "#FFFFFF",
     surface: "#F7F8FA",
     surfaceAlt: "#F2F4F7",
     text: "rgba(0,0,0,0.87)",
