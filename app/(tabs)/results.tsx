@@ -241,7 +241,10 @@ export default function ResultsScreen() {
                     }}
                   >
                     {selectedConversationNames.includes(conversationName) ? (
-                      <GradientText style={styles.filterButtonText}>
+                      <GradientText 
+                        style={styles.filterButtonText}
+                        colors={['#FF375F', '#0A84FF']}
+                      >
                         {conversationName}
                       </GradientText>
                     ) : (

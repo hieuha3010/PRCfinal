@@ -49,13 +49,17 @@ export function GradientBorder({ style, height = 2 }: GradientBorderProps) {
 interface GradientTextProps {
   children: string;
   style?: TextStyle;
+  colors?: string[];
 }
 
-export function GradientText({ children, style }: GradientTextProps) {
+export function GradientText({ children, style, colors }: GradientTextProps) {
   // For now, fallback to solid brand color on all platforms
   // TODO: Implement proper text masking for gradient text
+  const gradientColors = colors || [theme.colors.brandStart, theme.colors.brandMid, theme.colors.brandEnd];
+  const fallbackColor = colors ? colors[0] : theme.colors.brandSolid;
+  
   return (
-    <Text style={[{ color: theme.colors.brandSolid }, style]}>
+    <Text style={[{ color: fallbackColor }, style]}>
       {children}
     </Text>
   );
