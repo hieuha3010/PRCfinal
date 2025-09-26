@@ -69,7 +69,7 @@ export function SearchBar({
 const HEIGHT = 40; // smaller vertical size
 const createStyles = () => StyleSheet.create({
   outer: {
-    width: "88%",            // centered and not too wide
+    width: "95%",            // wider search bar
     alignSelf: "center",
     height: HEIGHT + 2,      // room for 1dp ring
     borderRadius: HEIGHT / 2,
