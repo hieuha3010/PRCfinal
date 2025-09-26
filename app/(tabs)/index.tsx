@@ -91,18 +91,16 @@ const createStyles = () =>
       flex: 1,
     },
     contentContainer: {
-      flexGrow: 1,
-      paddingHorizontal: theme.spacing["2xl"],
-      paddingTop: 24, // keep top space; StatusBar remains dark-content
-      paddingBottom: theme.spacing["3xl"],
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: theme.spacing["2xl"],
     },
     headerWrap: {
       alignItems: 'center',
-      marginTop: 12,
       marginBottom: 10,
     },
     searchWrap: {
       alignItems: 'center',
-      marginBottom: 16,
     },
   });
