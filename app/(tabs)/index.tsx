@@ -62,12 +62,12 @@ export default function SearchScreen() {
         {/* HEADER ABOVE */}
         <View style={styles.headerWrap}>
           <Header
-            title="MemoryHub"        
-            subtitle="We remember everything"   
+            title="MemoryHub"
+            subtitle="We remember everything"
           />
         </View>
 
-        {/* CENTERED, SMALLER SEARCH BAR */}
+        {/* CENTERED SEARCH BAR */}
         <View style={styles.searchWrap}>
           <SearchBar
             value={searchQuery}
@@ -91,18 +91,16 @@ const createStyles = () =>
       flex: 1,
     },
     contentContainer: {
-      flexGrow: 1,
+      flex: 1,
+      justifyContent: 'center',   // center vertically
+      alignItems: 'center',       // center horizontally
       paddingHorizontal: theme.spacing["2xl"],
-      paddingTop: 24, // keep top space; StatusBar remains dark-content
-      paddingBottom: theme.spacing["3xl"],
     },
     headerWrap: {
       alignItems: 'center',
-      marginTop: 12,
-      marginBottom: 10,
+      marginBottom: 20,           // space between header & search bar
     },
     searchWrap: {
       alignItems: 'center',
-      marginBottom: 16,
     },
   });
