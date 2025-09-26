@@ -91,10 +91,10 @@ const createStyles = () =>
       flex: 1,
     },
     contentContainer: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: theme.spacing["2xl"],
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: theme.spacing["2xl"],
     },
     headerWrap: {
       alignItems: 'center',
