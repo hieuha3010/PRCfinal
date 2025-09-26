@@ -94,7 +94,7 @@ const createStyles = () =>
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: theme.spacing["2xl"],
+        paddingHorizontal: theme.spacing["1xl"],
     },
     headerWrap: {
       alignItems: 'center',
