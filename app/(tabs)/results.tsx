@@ -382,7 +382,7 @@ const createStyles = () => StyleSheet.create({
     borderColor: theme.colors.brandSolid,
   },
   filterButtonText: {
-    fontSize: theme.typography.caption.fontSize,
+    fontSize: 11,
     lineHeight: theme.typography.caption.lineHeight,
     fontWeight: '500',
     color: theme.colors.textMuted,
