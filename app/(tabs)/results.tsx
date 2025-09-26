@@ -341,7 +341,7 @@ const createStyles = () => StyleSheet.create({
     justifyContent: 'space-between',
   },
   resultsCount: {
-    fontSize: theme.typography.subhead.fontSize,
+    fontSize: 11,
     lineHeight: theme.typography.subhead.lineHeight,
     fontWeight: '500',
     color: theme.colors.textMuted,
