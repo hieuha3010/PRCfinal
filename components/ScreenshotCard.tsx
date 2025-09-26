@@ -231,7 +231,7 @@ const createStyles = () => StyleSheet.create({
   card: {
     position: 'relative',
     flexDirection: 'row',
-    backgroundColor: theme.colors.backgroundGradient,
+    backgroundColor: theme.colors.background,
     borderRadius: theme.radii.xl,
     marginBottom: theme.spacing.lg,
     padding: theme.spacing.xl,
