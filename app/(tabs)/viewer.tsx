@@ -264,7 +264,7 @@ const createStyles = (colors: any) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#0B0D0F',
+      backgroundColor: 'transparent',
     },
     loadingText: {
       textAlign: 'center',
