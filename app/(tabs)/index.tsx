@@ -102,5 +102,7 @@ const createStyles = () =>
     },
     searchWrap: {
       alignItems: 'center',
+      width: '100%',
+      maxWidth: 560,   
     },
   });
