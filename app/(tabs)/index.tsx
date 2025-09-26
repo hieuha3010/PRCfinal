@@ -62,8 +62,7 @@ export default function SearchScreen() {
         {/* HEADER ABOVE */}
         <View style={styles.headerWrap}>
           <Header
-            title="MemoryHub"
-            subtitle="Search your captured memories"
+            title="MemoryHub"         
           />
         </View>
 
