@@ -202,7 +202,7 @@ export default function ResultsScreen() {
               style={styles.contextContainer}
             >
               <Text style={styles.contextText}>
-                John mention Dany son's birthday party on Sep 15, all these chat is in 1 continous conversation. Nick & John and Dany are best friends. THey talk quite often on casual subjects.
+                Danny’s son’s birthday falls on September 18, but the celebration is scheduled for September 15.
               </Text>
             </Animated.View>
 
