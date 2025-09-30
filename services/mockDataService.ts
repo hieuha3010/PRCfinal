@@ -12,41 +12,23 @@ const CONTACTS = ['Julie', 'Kate'];
 
 const MOCK_SEEDS: Omit<Screenshot, 'id' | 'timestamp' | 'imageUrl'>[] = [
   {
-    title: 'Julie',
-    summary: 'Youre a machine, Dad. Need me to bring over some hot coffee?',
-    content: 'Youre a machine, Dad. Need me to bring over some hot coffee?',
-    contact: 'Julie',
-    keywords: ['coffee'],
+    title: 'Danny',
+    summary: 'Yeah, man. September 18th — my son’s first birthday… well, his “born day,” you know?',
+    content: 'Yeah, man. September 18th — my son’s first birthday… well, his “born day,” you know?',
+    contact: 'Danny',
+    keywords: ['birthday'],
     appSource: 'whatsapp' as const,
-    conversationName: 'Julie'
+    conversationName: 'Danny'
   },
   {
-    title: 'Kate',
-    summary: 'Then maybe Café Lumi? Cozy, quiet, and their flat white is unbeatable. Sold. Italian pasta + Lumi coffee. We basically nailed dinner and dessert.',
-    content: 'Then maybe Café Lumi? Cozy, quiet, and their flat white is unbeatable. Sold. Italian pasta + Lumi coffee. We basically nailed dinner and dessert.',
-    contact: 'Kate',
-    keywords: ['coffee'],
+    title: 'John',
+    summary: 'Speaking of, did you hear about his son’s birthday party on Sep 15?',
+    content: 'Speaking of, did you hear about his son’s birthday party on Sep 15?',
+    contact: 'John',
+    keywords: ['birthday'],
     appSource: 'whatsapp' as const,
-    conversationName: 'Kate'
-  },
-  {
-    title: 'Kate',
-    summary: 'Or we can go there, I eat and you drink coffee lol.',
-    content: 'Or we can go there, I eat and you drink coffee lol.',
-    contact: 'Kate',
-    keywords: ['coffee'],
-    appSource: 'whatsapp' as const,
-    conversationName: 'Kate'
-  },
-  {
-    title: 'Kate',
-    summary: 'Ha! Classic. But if we’re doing that, I’m making sure the coffee is top-tier. Or… we could hit a real coffee spot after and keep it pure. You mean like a double stop? Pasta first, coffee pilgrimage second? I like the way you think. So… Italian plus a coffee run?',
-    content: 'Ha! Classic. But if we’re doing that, I’m making sure the coffee is top-tier. Or… we could hit a real coffee spot after and keep it pure. You mean like a double stop? Pasta first, coffee pilgrimage second? I like the way you think. So… Italian plus a coffee run?',
-    contact: 'Kate',
-    keywords: ['coffee'],
-    appSource: 'whatsapp' as const,
-    conversationName: 'Kate'
-  }
+    conversationName: 'John'
+  }  
 ];
 class MockDataService {
   private screenshots: Screenshot[] = [];
