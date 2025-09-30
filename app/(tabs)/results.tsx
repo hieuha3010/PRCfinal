@@ -197,7 +197,7 @@ export default function ResultsScreen() {
             >
               <View style={styles.resultsHeader}>
                 <Text style={styles.resultsCount}>
-                  {results.length} sources{results.length !== 1 ? 's' : ''}
+                  {results.length} source{results.length !== 1 ? 's' : ''}
                 </Text>
                 
                 <View style={styles.resultsActions}>
