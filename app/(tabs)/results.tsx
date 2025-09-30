@@ -12,7 +12,6 @@ import {
   Platform,
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
-import { ArrowLeft, Filter, Grid2x2 as Grid, List } from 'lucide-react-native';
 import { ArrowLeft, Filter, Grid2x2 as Grid, List, Check } from 'lucide-react-native';
 import Animated, {
   FadeIn,
