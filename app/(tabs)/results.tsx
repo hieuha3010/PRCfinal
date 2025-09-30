@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { ArrowLeft, Filter, Grid2x2 as Grid, List } from 'lucide-react-native';
+import { ArrowLeft, Filter, Grid2x2 as Grid, List, Check } from 'lucide-react-native';
 import Animated, {
   FadeIn,
   SlideInUp,
@@ -41,6 +42,8 @@ export default function ResultsScreen() {
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
   const [selectedConversationNames, setSelectedConversationNames] = useState<string[]>([]);
   const [availableConversationNames, setAvailableConversationNames] = useState<string[]>([]);
+  const [showFilterDropdown, setShowFilterDropdown] = useState(false);
+  const [selectedFilterOptions, setSelectedFilterOptions] = useState<string[]>([]);
 
   // Trigger search whenever searchQuery or selectedConversationNames changes
   useEffect(() => {
@@ -96,6 +99,19 @@ export default function ResultsScreen() {
     }
   };
 
+  const toggleFilterOption = (option: string) => {
+    setSelectedFilterOptions(prevSelected => {
+      if (prevSelected.includes(option)) {
+        return prevSelected.filter(opt => opt !== option);
+      } else {
+        return [...prevSelected, option];
+      }
+    });
+    
+    if (Platform.OS !== 'web') {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    }
+  };
   const handleResultPress = (screenshot: SearchResult, index: number) => {
     if (Platform.OS !== 'web') {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -203,7 +219,7 @@ export default function ResultsScreen() {
                 <View style={styles.resultsActions}>
                   <TouchableOpacity 
                     style={styles.resultsActionButton}
-                    onPress={() => {}}
+                    onPress={() => setShowFilterDropdown(!showFilterDropdown)}
                     activeOpacity={0.7}
                   >
                     <Filter size={14} color={theme.colors.textMuted} />
@@ -222,6 +238,54 @@ export default function ResultsScreen() {
                   </TouchableOpacity>
                 </View>
               </View>
+              
+              {/* Filter Dropdown */}
+              {showFilterDropdown && (
+                <Animated.View 
+                  entering={FadeIn.duration(200)}
+                  exiting={fadeOutFast}
+                  style={styles.filterDropdown}
+                >
+                  <TouchableOpacity 
+                    style={[
+                      styles.dropdownOption,
+                      selectedFilterOptions.includes('App name') && styles.dropdownOptionSelected
+                    ]}
+                    onPress={() => toggleFilterOption('App name')}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={[
+                      styles.dropdownOptionText,
+                      selectedFilterOptions.includes('App name') && styles.dropdownOptionTextSelected
+                    ]}>
+                      App name
+                    </Text>
+                    {selectedFilterOptions.includes('App name') && (
+                      <Check size={16} color={theme.colors.brandSolid} />
+                    )}
+                  </TouchableOpacity>
+                  
+                  <TouchableOpacity 
+                    style={[
+                      styles.dropdownOption,
+                      selectedFilterOptions.includes('Conversation name') && styles.dropdownOptionSelected,
+                      styles.lastDropdownOption
+                    ]}
+                    onPress={() => toggleFilterOption('Conversation name')}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={[
+                      styles.dropdownOptionText,
+                      selectedFilterOptions.includes('Conversation name') && styles.dropdownOptionTextSelected
+                    ]}>
+                      Conversation name
+                    </Text>
+                    {selectedFilterOptions.includes('Conversation name') && (
+                      <Check size={16} color={theme.colors.brandSolid} />
+                    )}
+                  </TouchableOpacity>
+                </Animated.View>
+              )}
             </Animated.View>
 
             {/* Filter Buttons */}
@@ -348,6 +412,7 @@ const createStyles = () => StyleSheet.create({
   resultsMeta: {
     paddingHorizontal: theme.spacing["2xl"],
     paddingVertical: theme.spacing.lg,
+    position: 'relative',
   },
   resultsHeader: {
     flexDirection: 'row',
@@ -413,5 +478,51 @@ const createStyles = () => StyleSheet.create({
     lineHeight: theme.typography.subhead.lineHeight,
     fontWeight: '500',
     color: theme.colors.textMuted,
+  },
+  filterDropdown: {
+    position: 'absolute',
+    top: 50,
+    right: theme.spacing["2xl"],
+    backgroundColor: theme.colors.background,
+    borderRadius: theme.radii.lg,
+    borderWidth: theme.hairline,
+    borderColor: theme.colors.border,
+    minWidth: 180,
+    zIndex: 1000,
+    ...Platform.select({
+      ios: {
+        shadowColor: theme.colors.shadow,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.15,
+        shadowRadius: 12,
+      },
+      android: {
+        elevation: 8,
+      },
+    }),
+  },
+  dropdownOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: theme.spacing.md,
+    paddingHorizontal: theme.spacing.md,
+    borderBottomWidth: theme.hairline,
+    borderBottomColor: theme.colors.border,
+  },
+  lastDropdownOption: {
+    borderBottomWidth: 0,
+  },
+  dropdownOptionSelected: {
+    backgroundColor: theme.colors.surface,
+  },
+  dropdownOptionText: {
+    fontSize: theme.typography.subhead.fontSize,
+    lineHeight: theme.typography.subhead.lineHeight,
+    color: theme.colors.text,
+  },
+  dropdownOptionTextSelected: {
+    fontWeight: '600',
+    color: theme.colors.brandSolid,
   },
 });
