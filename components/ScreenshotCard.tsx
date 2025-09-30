@@ -39,106 +39,11 @@ export function ScreenshotCard({
   const scale = useSharedValue(1);
 
   const getHighlightedSnippet = (text: string, query: string, maxLength: number) => {
-    // If no query, just truncate the text
-    if (!query.trim()) {
-      if (text.length <= maxLength) {
-        return text;
-      }
-      return text.substring(0, maxLength - 3) + '...';
+    // Simply truncate the text without any highlighting
+    if (text.length <= maxLength) {
+      return text;
     }
-
-    const queryTokens = query.toLowerCase().split(/\s+/).filter(token => token.length > 0);
-    const lowerText = text.toLowerCase();
-    
-    // Find the first occurrence of any query token
-    let firstMatchIndex = -1;
-    let matchedToken = '';
-    
-    for (const token of queryTokens) {
-      const index = lowerText.indexOf(token);
-      if (index !== -1 && (firstMatchIndex === -1 || index < firstMatchIndex)) {
-        firstMatchIndex = index;
-        matchedToken = token;
-      }
-    }
-    
-    // If no match found, just truncate
-    if (firstMatchIndex === -1) {
-      if (text.length <= maxLength) {
-        return text;
-      }
-      return text.substring(0, maxLength - 3) + '...';
-    }
-    
-    // Calculate snippet boundaries centered around the match
-    const matchEnd = firstMatchIndex + matchedToken.length;
-    const halfLength = Math.floor(maxLength / 2);
-    
-    let startIndex = Math.max(0, firstMatchIndex - halfLength);
-    let endIndex = Math.min(text.length, startIndex + maxLength);
-    
-    // Adjust start if we're at the end of the text
-    if (endIndex - startIndex < maxLength) {
-      startIndex = Math.max(0, endIndex - maxLength);
-    }
-    
-    // Extract the snippet
-    let snippet = text.substring(startIndex, endIndex);
-    
-    // Add ellipses
-    const needsStartEllipsis = startIndex > 0;
-    const needsEndEllipsis = endIndex < text.length;
-    
-    if (needsStartEllipsis) {
-      snippet = '...' + snippet;
-    }
-    if (needsEndEllipsis) {
-      snippet = snippet + '...';
-    }
-    
-    // Highlight the query tokens in the snippet
-    const parts: (string | React.ReactElement)[] = [];
-    let remainingText = snippet;
-    let keyCounter = 0;
-    
-    while (remainingText.length > 0) {
-      let earliestMatch = { index: -1, token: '', length: 0 };
-      
-      // Find the earliest match among all query tokens
-      for (const token of queryTokens) {
-        const index = remainingText.toLowerCase().indexOf(token);
-        if (index !== -1 && (earliestMatch.index === -1 || index < earliestMatch.index)) {
-          earliestMatch = { index, token, length: token.length };
-        }
-      }
-      
-      if (earliestMatch.index === -1) {
-        // No more matches, add the rest as plain text
-        parts.push(remainingText);
-        break;
-      }
-      
-      // Add text before the match
-      if (earliestMatch.index > 0) {
-        parts.push(remainingText.substring(0, earliestMatch.index));
-      }
-      
-      // Add the highlighted match
-      const matchedText = remainingText.substring(
-        earliestMatch.index, 
-        earliestMatch.index + earliestMatch.length
-      );
-      parts.push(
-        <Text key={keyCounter++} style={{ fontWeight: '600', color: theme.colors.brandSolid }}>
-          {matchedText}
-        </Text>
-      );
-      
-      // Continue with the remaining text
-      remainingText = remainingText.substring(earliestMatch.index + earliestMatch.length);
-    }
-    
-    return parts;
+    return text.substring(0, maxLength - 3) + '...';
   };
 
   const animatedStyle = useAnimatedStyle(() => ({

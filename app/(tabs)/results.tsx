@@ -248,25 +248,6 @@ export default function ResultsScreen() {
                   <TouchableOpacity 
                     style={[
                       styles.dropdownOption,
-                      selectedFilterOptions.includes('App name') && styles.dropdownOptionSelected
-                    ]}
-                    onPress={() => toggleFilterOption('App name')}
-                    activeOpacity={0.7}
-                  >
-                    <Text style={[
-                      styles.dropdownOptionText,
-                      selectedFilterOptions.includes('App name') && styles.dropdownOptionTextSelected
-                    ]}>
-                      App name
-                    </Text>
-                    {selectedFilterOptions.includes('App name') && (
-                      <Check size={16} color={theme.colors.brandSolid} />
-                    )}
-                  </TouchableOpacity>
-                  
-                  <TouchableOpacity 
-                    style={[
-                      styles.dropdownOption,
                       selectedFilterOptions.includes('Conversation name') && styles.dropdownOptionSelected,
                       styles.lastDropdownOption
                     ]}
