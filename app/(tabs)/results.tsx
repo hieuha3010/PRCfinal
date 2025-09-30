@@ -487,7 +487,7 @@ const createStyles = () => StyleSheet.create({
     borderWidth: theme.hairline,
     borderColor: theme.colors.border,
     minWidth: 180,
-    zIndex: 1000,
+    zIndex: 9999,
     ...Platform.select({
       ios: {
         shadowColor: theme.colors.shadow,
