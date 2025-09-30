@@ -183,6 +183,15 @@ export default function ResultsScreen() {
           >
             {/* Results Count */}
             <Animated.View 
+              entering={FadeIn.delay(150).duration(400)}
+              style={styles.contextContainer}
+            >
+              <Text style={styles.contextText}>
+                John mention Dany son's birthday party on Sep 15, all these chat is in 1 continous conversation. Nick & John and Dany are best friends. THey talk quite often on casual subjects.
+              </Text>
+            </Animated.View>
+
+            <Animated.View 
               entering={FadeIn.delay(200).duration(400)}
               style={styles.resultsMeta}
             >
@@ -394,5 +403,15 @@ const createStyles = () => StyleSheet.create({
   },
   listContainer: {
     paddingHorizontal: theme.spacing["2xl"],
+  },
+  contextContainer: {
+    paddingHorizontal: theme.spacing["2xl"],
+    paddingVertical: theme.spacing.md,
+  },
+  contextText: {
+    fontSize: theme.typography.subhead.fontSize,
+    lineHeight: theme.typography.subhead.lineHeight,
+    fontWeight: '500',
+    color: theme.colors.textMuted,
   },
 });
